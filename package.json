@@ -1,12 +1,28 @@
 {
-  "name": "application-name",
+  "name": "gitexample",
   "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "node server"
-  },  
-"license": "Apache",
-"engines": {
+  },
+  "license": "UNLICENSED",
+  "engines": {
     "node": "~0.10.0 || ~4.2.0"
+  },
+  "description": "[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonsmith840/GitExample.git"
+  },
+  "author": "Jonathan Smith",
+  "bugs": {
+    "url": "https://github.com/jonsmith840/GitExample/issues"
+  },
+  "homepage": "https://github.com/jonsmith840/GitExample#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "tedious": "^3.0.1"
   }
 }
