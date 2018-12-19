@@ -4,9 +4,9 @@ var url = require('url');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
-    var Connection = require('tedious').Connection;  
-    var Request = require('tedious').Request;  
-    var TYPES = require('tedious').TYPES;  
+    //var Connection = require('tedious').Connection;  
+    //var Request = require('tedious').Request;  
+    //var TYPES = require('tedious').TYPES;  
 
     var config = {  
         userName: 'cm97@uobe7kufo3',  
