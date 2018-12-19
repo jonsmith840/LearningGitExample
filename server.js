@@ -1,7 +1,7 @@
 var http = require('http');
 var express = require('express');
 var url = require('url');
-const tedious = require('tedious');
+const mssql = require('mssql');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
@@ -23,6 +23,6 @@ var app = express();
 http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end("Hello, world. I can't believe mssql worked! Just need to rebuild the whole of the rest of the script now.");
+    res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
     
 }).listen(process.env.PORT || 8080);
