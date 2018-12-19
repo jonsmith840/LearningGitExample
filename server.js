@@ -17,7 +17,7 @@ var cors = require('cors');
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
     };  
     
-var sql = require("mssql");
+//var sql = require("mssql");
 
 var app = express();
 http.createServer(function (req, res) {
