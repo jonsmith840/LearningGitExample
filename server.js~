@@ -1,4 +1,5 @@
 var http = require('http');
+/*
 var express = require('express');
 var url = require('url');
 var cors = require('cors');
@@ -17,7 +18,7 @@ var cors = require('cors');
     
 //var sql = require("mssql");
 var app = express();
-
+*/
 http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
