@@ -5,7 +5,7 @@ var url = require('url');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
-    var Connection = require('tedious').Connection;  
+    //var Connection = require('tedious').Connection;  
     //var Request = require('tedious').Request;  
     //var TYPES = require('tedious').TYPES;  
 
@@ -17,7 +17,7 @@ var cors = require('cors');
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
     };  
     
-//var sql = require("mssql");
+var sql = require("mssql");
 
 var app = express();
 http.createServer(function (req, res) {
