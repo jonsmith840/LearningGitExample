@@ -1,10 +1,11 @@
 var http = require('http');
 var express = require('express');
 var url = require('url');
+const sql = require('mssql');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
-    var Connection = require('tedious').Connection;  
+    //var Connection = require('tedious').Connection;  
     //var Request = require('tedious').Request;  
     //var TYPES = require('tedious').TYPES;  
 
