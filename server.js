@@ -23,6 +23,6 @@ var app = express();
 http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('Hello, world. I can't brlieve mssql worked! Just need to rebuild the whole of the rest of the script now.');
+    res.end("Hello, world. I can't believe mssql worked! Just need to rebuild the whole of the rest of the script now.");
     
 }).listen(process.env.PORT || 8080);
