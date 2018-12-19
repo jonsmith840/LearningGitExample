@@ -1,7 +1,7 @@
 var http = require('http');
 var express = require('express');
 var url = require('url');
-//const sql = require('mssql');
+const sql = require('mssql');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
