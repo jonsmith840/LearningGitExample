@@ -1,7 +1,7 @@
 var http = require('http');
 var express = require('express');
-/*
 var url = require('url');
+/*
 var cors = require('cors');
     var bodyParser = require('body-parser');
     var Connection = require('tedious').Connection;  
@@ -17,8 +17,8 @@ var cors = require('cors');
     };  
     
 //var sql = require("mssql");
-var app = express();
 */
+var app = express();
 http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
