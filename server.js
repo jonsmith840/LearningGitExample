@@ -42,10 +42,11 @@ app.get('/', function (req, res) {
     // connect to your database
     sql.connect(config, function (err) {
     
-        if (err) console.log(err);
+        if (err) res.send(err);
 
         // create Request object
-        var request = new sql.Request();
+/*
+		var request = new sql.Request();
            
         // query to the database and get the records
         request.query('select * from Contacts where Code = 18985', function (err, recordset) {
@@ -54,8 +55,8 @@ app.get('/', function (req, res) {
 
             // send records as a response
             res.send(recordset);
-            
         });
+*/            
     });
 });
 
