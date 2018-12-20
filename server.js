@@ -9,7 +9,7 @@ var cors = require('cors');
     //var Connection = require('tedious').Connection;  
     //var Request = require('tedious').Request;  
     //var TYPES = require('tedious').TYPES;  
-/*
+
 
     var config = {  
         userName: 'cm97@uobe7kufo3',  
@@ -19,14 +19,14 @@ var cors = require('cors');
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
     };  
     
-//var sql = require("mssql");
+var sql = require("mssql");
 http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
     
 }).listen(process.env.PORT || 8080);
-*/
+/*
 app.get('/', function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Connecting throws an internal error.");
@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
     };
 
     // connect to your database
-/*
+
     sql.connect(config, function (err) {
     
         if (err) res.send(err);
@@ -59,9 +59,10 @@ app.get('/', function (req, res) {
             res.send(recordset);
         });
     });
-*/            
+            
 });
 
 var server = app.listen(8080, function () {
     console.log('Server is running..');
 });
+*/
