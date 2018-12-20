@@ -19,8 +19,14 @@ var cors = require('cors');
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
     };  
     
-var sql = require("mssql");
 http.createServer(function (req, res) {
+var sql = require("mssql");
+    var config = {
+        user: 'cm97@uobe7kufo3',
+        password: 'Azur3Pswd',
+        server: 'uobe7kufo3.database.windows.net', 
+        database: 'Teledata' 
+    };
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
