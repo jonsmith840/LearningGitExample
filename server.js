@@ -18,26 +18,37 @@ var cors = require('cors');
         // If you are on Microsoft Azure, you need this:  
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
     };  
+app.get('/', function (req, res) {
+    //res.writeHead(200, { 'Content-Type': 'text/html' });
+    //res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Connecting throws an internal error.");
     
-http.createServer(function (req, res) {
+//http.createServer(function (req, res) {
 var sql = require("mssql");
     var config = {
         user: 'cm97@uobe7kufo3',
         password: 'Azur3Pswd',
         server: 'uobe7kufo3.database.windows.net',
         connectionTimeout: 15000,
-        database: 'Teledata' 
+        database: 'Teledata',
+        options: {encrypt: true}
     };
-    res.writeHead(200, { 'Content-Type': 'text/html' });
     //res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
 
     sql.connect(config, function (err) {
     
         if (err){
-        	res.end(err);
-        } else {
-        	res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
-        }
+        	console.log(err);
+        } 
+		var request = new sql.Request();
+        request.query('select * from Contacts where Code = 18985 for JSON auto', function (err, recordset) {
+            
+            if (err) console.log(err)
+
+            // send records as a response
+        	//res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.send(recordset);
+        });
+        
     });
     
     
