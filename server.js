@@ -27,9 +27,18 @@ var sql = require("mssql");
         server: 'uobe7kufo3.database.windows.net', 
         database: 'Teledata' 
     };
-    
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
+    //res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
+
+    sql.connect(config, function (err) {
+    
+        if (err){
+        	res.end(err);
+        } else {
+        	res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
+        }
+    });
+    
     
 }).listen(process.env.PORT || 8080);
 /*
