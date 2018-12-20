@@ -28,6 +28,8 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT || 8080);
 */
 app.get('/', function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Connecting throws an internal error.");
    
     var sql = require("mssql");
 
@@ -40,12 +42,12 @@ app.get('/', function (req, res) {
     };
 
     // connect to your database
+/*
     sql.connect(config, function (err) {
     
         if (err) res.send(err);
 
         // create Request object
-/*
 		var request = new sql.Request();
            
         // query to the database and get the records
@@ -56,8 +58,8 @@ app.get('/', function (req, res) {
             // send records as a response
             res.send(recordset);
         });
-*/            
     });
+*/            
 });
 
 var server = app.listen(8080, function () {
