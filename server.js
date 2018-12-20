@@ -24,7 +24,8 @@ var sql = require("mssql");
     var config = {
         user: 'cm97@uobe7kufo3',
         password: 'Azur3Pswd',
-        server: 'uobe7kufo3.database.windows.net', 
+        server: 'uobe7kufo3.database.windows.net',
+        connectionTimeout: 15000,
         database: 'Teledata' 
     };
     res.writeHead(200, { 'Content-Type': 'text/html' });
