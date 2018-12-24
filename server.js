@@ -6,13 +6,6 @@ var app = express();
 var cors = require('cors');
     var bodyParser = require('body-parser');
 
-    var config = {  
-        userName: 'cm97@uobe7kufo3',  
-        password: 'Azur3Pswd',  
-        server: 'uobe7kufo3.database.windows.net',
-        // If you are on Microsoft Azure, you need this:  
-        options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true, parseJSON: true}  
-    }; 
     var configString = process.env.SQLAZURECONNSTR_Teledata;
 
 app.use(bodyParser.json());
@@ -34,14 +27,6 @@ app.post('/', function (req, res) {
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
     	
-    var config = {
-        user: 'cm97@uobe7kufo3',
-        password: 'Azur3Pswd',
-        server: 'uobe7kufo3.database.windows.net',
-        connectionTimeout: 15000,
-        database: 'Teledata',
-        options: {encrypt: true, parseJSON: true}
-    };
 
     sql.connect(configString, function (err) {
     
