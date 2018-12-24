@@ -13,6 +13,7 @@ var cors = require('cors');
         // If you are on Microsoft Azure, you need this:  
         options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true, parseJSON: true}  
     }; 
+    var configString = process.env.SQLAZURECONNSTR_Teledata;
 
 app.use(bodyParser.json());
 
@@ -39,10 +40,10 @@ app.post('/', function (req, res) {
         server: 'uobe7kufo3.database.windows.net',
         connectionTimeout: 15000,
         database: 'Teledata',
-        options: {encrypt: true}
+        options: {encrypt: true, parseJSON: true}
     };
 
-    sql.connect(config, function (err) {
+    sql.connect(configString, function (err) {
     
         if (err){
         	console.log(err);
