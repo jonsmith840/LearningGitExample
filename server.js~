@@ -2,51 +2,61 @@ var http = require('http');
 var express = require('express');
 var url = require('url');
 var app = express();
-//const mssql = require('mssql');
 
 var cors = require('cors');
     var bodyParser = require('body-parser');
-    //var Connection = require('tedious').Connection;  
-    //var Request = require('tedious').Request;  
-    //var TYPES = require('tedious').TYPES;  
 
+    var configString = process.env.SQLAZURECONNSTR_Teledata;
 
-    var config = {  
-        userName: 'cm97@uobe7kufo3',  
-        password: 'Azur3Pswd',  
-        server: 'uobe7kufo3.database.windows.net',  
-        // If you are on Microsoft Azure, you need this:  
-        options: {encrypt: true, database: 'Teledata', rowCollectionOnRequestCompletion: true}  
-    };  
-app.get('/', function (req, res) {
-    //res.writeHead(200, { 'Content-Type': 'text/html' });
-    //res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Connecting throws an internal error.");
-    
-//http.createServer(function (req, res) {
-var sql = require("mssql");
-    var config = {
-        user: 'cm97@uobe7kufo3',
-        password: 'Azur3Pswd',
-        server: 'uobe7kufo3.database.windows.net',
-        connectionTimeout: 15000,
-        database: 'Teledata',
-        options: {encrypt: true}
-    };
-    //res.end("Hello, world. I can't believe mssql worked or why tedious doesn't! Just need to rebuild the whole of the rest of the script now.");
+app.use(bodyParser.json());
 
-    sql.connect(config, function (err) {
+app.post('/', function (req, res) {
+
+		var requestString = JSON.stringify(req.body);
+			requestObj = JSON.parse(requestString);
+			var QueryString = requestObj.QueryString;
+
+    	var sqlParams = "";
+			for (x in requestObj.Params){
+				sqlParams += ", @" + x;
+				//var Param2 = requestObj.Params[x];
+			}
+		sqlParams = sqlParams.slice(1);
+    	var sqlstring = "Exec " + QueryString + sqlParams;
+
+    	var sql = require("mssql");
+    	//var TYPES = require('tedious').TYPES;  
+    	
+
+    sql.connect(configString, function (err) {
     
         if (err){
         	console.log(err);
         } 
 		var request = new sql.Request();
-        request.query('select * from Contacts where Code = 18985 for JSON auto', function (err, recordset) {
-            
+        //request.input('Staff', sql.Int, 7);
+			for (x in requestObj.Params){
+				if (isNaN(requestObj.Params[x])){
+					request.input(x, sql.VarChar, requestObj.Params[x]);
+				} else {
+					if (Number.isInteger(requestObj.Params[x])){
+						request.input(x, sql.Int, requestObj.Params[x]);
+					} else {
+						request.input(x, sql.Float, requestObj.Params[x]);
+					}
+				}
+			}
+        request.execute(QueryString, function (err, recordset) {
+        //request.query(sqlstring, function (err, recordset) {
+        		/*
+            */
             if (err) console.log(err)
 
             // send records as a response
         	//res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.send(recordset);
+        	res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(recordset));
+            sql.close();
         });
         
     });
