@@ -7,7 +7,7 @@ var cors = require('cors');
     var bodyParser = require('body-parser');
 
     var configString = process.env.SQLAZURECONNSTR_Teledata;
-var port = Number(process.env.PORT) || 8080;
+
 app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
@@ -46,7 +46,7 @@ app.post('/', function (req, res) {
 					}
 				}
 			}
-        request.execute(QueryString, function (err, result) {
+        request.execute(QueryString, function (err, recordset) {
         //request.query(sqlstring, function (err, recordset) {
         		/*
             */
@@ -55,15 +55,14 @@ app.post('/', function (req, res) {
             // send records as a response
         	//res.writeHead(200, { 'Content-Type': 'text/html' });
         	res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(result.recordset));
-            //res.end(recordset);
+            res.end(JSON.stringify(recordset));
             sql.close();
         });
         
     });
     
     
-}).listen(port);
+}).listen(process.env.PORT || 8080);
 /*
 app.get('/', function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
