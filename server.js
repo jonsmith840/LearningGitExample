@@ -62,8 +62,8 @@ app.get('/', function (req, res) {
         });
         
     });*/
-    //res.end(user + "nothing is what's coming through");
-    res.end(JSON.stringify(req.headers));
+    res.end(identity + " nothing is what's coming through");
+    //res.end(JSON.stringify(req.headers));
     
 }).listen(process.env.PORT || 8080);
 /*
