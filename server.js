@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
 		var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
+		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
 			//var QueryString = requestObj.QueryString;
@@ -29,15 +30,15 @@ app.post('/', function (req, res) {
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
     	
-
+/*
     sql.connect(configString, function (err) {
     
         if (err){
         	console.log(err);
         } 
 		var request = new sql.Request();
-        request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
-			/*for (x in requestObj.Params){
+        //request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
+			for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
 				} else {
@@ -47,7 +48,7 @@ app.post('/', function (req, res) {
 						request.input(x, sql.Float, requestObj.Params[x]);
 					}
 				}
-			}*/
+			}
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
         		/*
@@ -61,8 +62,8 @@ app.post('/', function (req, res) {
             sql.close();
         });
         
-    });
-    
+    });*/
+    res.end(identity);
     
 }).listen(process.env.PORT || 8080);
 /*
