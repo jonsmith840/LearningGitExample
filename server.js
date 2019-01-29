@@ -10,7 +10,7 @@ var cors = require('cors');
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.post('/', function (req, res) {
 		//var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
 		//var user = req.Headers["X-MS-CLIENT-PRINCIPAL-NAME"].ToString();
 		
