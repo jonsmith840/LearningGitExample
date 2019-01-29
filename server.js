@@ -62,7 +62,7 @@ app.post('/', function (req, res) {
         });
         
     });*/
-    res.end(req.header("X-MS-CLIENT-PRINCIPAL-NAME").tostring() + " is what's coming through");
+    res.end("nothing is what's coming through");
     
 }).listen(process.env.PORT || 8080);
 /*
