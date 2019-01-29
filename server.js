@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
 		//var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
-		var user = req.header("X-MS-CLIENT-PRINCIPAL-NAME").ToString();
+		//var user = req.header("X-MS-CLIENT-PRINCIPAL-NAME").ToString();
 		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
@@ -62,7 +62,7 @@ app.post('/', function (req, res) {
         });
         
     });*/
-    res.end(user + " is what's coming through");
+    res.end(req.header("X-MS-CLIENT-PRINCIPAL-NAME").tostring() + " is what's coming through");
     
 }).listen(process.env.PORT || 8080);
 /*
