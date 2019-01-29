@@ -61,7 +61,7 @@ app.post('/', function (req, res) {
         });
         
     });*/
-    res.end('jonsmith840');
+    res.end(identity);
     
 }).listen(process.env.PORT || 8080);
 /*
