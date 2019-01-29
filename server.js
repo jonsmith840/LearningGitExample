@@ -11,7 +11,7 @@ var cors = require('cors');
 app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
-		var identity = req.header('X-MS-CLIENT-PRINCIPAL-NAME');
+		var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
 		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
@@ -61,7 +61,7 @@ app.post('/', function (req, res) {
         });
         
     });*/
-    res.end(identity + " is what's coming through");
+    res.end(req.header('X-MS-CLIENT-PRINCIPAL-NAME') + " is what's coming through");
     
 }).listen(process.env.PORT || 8080);
 /*
