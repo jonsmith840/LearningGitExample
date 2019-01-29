@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
 		//var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
-		var user = request.header("X-MS-CLIENT-PRINCIPAL-NAME").ToString();
+		var user = req.headers["X-MS-CLIENT-PRINCIPAL-NAME"].ToString();
 		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
