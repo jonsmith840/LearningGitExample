@@ -10,9 +10,10 @@ var cors = require('cors');
 
 app.use(bodyParser.json());
 
-app.post('/', function (req, res) {
+app.get('/', function (req, res) {
 		//var identity = req.header('X-MS-CLIENT-PRINCIPAL-ID');
 		//var user = req.headers['authorization'].tostring();
+/*
 		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
@@ -31,7 +32,6 @@ app.post('/', function (req, res) {
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
     	
-/*
     sql.connect(configString, function (err) {
     
         if (err){
