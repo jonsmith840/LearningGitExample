@@ -22,7 +22,8 @@ app.post('/', function (req, res) {
 				//var Param2 = requestObj.Params[x];
 			}
 		sqlParams = sqlParams.slice(1);
-    	var sqlstring = "Exec " + QueryString + sqlParams;
+    	//var sqlstring = "Exec " + QueryString + sqlParams;
+    	var sqlstring = "Exec InvoiceCustomerGoogleSP, @Google 'jonsmith840@gmail.com'";
 
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
