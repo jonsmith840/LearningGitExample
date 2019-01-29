@@ -51,8 +51,6 @@ app.post('/', function (req, res) {
 			}
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
-        		/*
-            */
             if (err) console.log(err)
 
             // send records as a response
