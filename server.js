@@ -13,12 +13,12 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
 		var identity = req.header('x-ms-client-principal-name');
 		//var user = req.headers['authorization'].tostring();
+			var QueryString = 'InvoiceCustomerGoogleSP';
 /*
 		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
 			//var QueryString = requestObj.QueryString;
-			var QueryString = 'InvoiceCustomerGoogleSP';
 
     	var sqlParams = "";
 			for (x in requestObj.Params){
@@ -31,15 +31,15 @@ app.get('/', function (req, res) {
 
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
-    	
+ */   	
     sql.connect(configString, function (err) {
     
         if (err){
         	console.log(err);
         } 
 		var request = new sql.Request();
-        //request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
-			for (x in requestObj.Params){
+        request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
+			/*for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
 				} else {
@@ -49,7 +49,7 @@ app.get('/', function (req, res) {
 						request.input(x, sql.Float, requestObj.Params[x]);
 					}
 				}
-			}
+			}*/
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
             if (err) console.log(err)
@@ -61,8 +61,8 @@ app.get('/', function (req, res) {
             sql.close();
         });
         
-    });*/
-    res.end(identity + " nothing is what's coming through");
+    });
+    //res.end(identity + " nothing is what's coming through");
     //res.end(JSON.stringify(req.headers));
     
 }).listen(process.env.PORT || 8080);
