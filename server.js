@@ -28,10 +28,10 @@ app.get('/', function (req, res) {
 		sqlParams = sqlParams.slice(1);
     	//var sqlstring = "Exec " + QueryString + sqlParams;
     	//var sqlstring = "Exec InvoiceCustomerGoogleSP, @Google 'jonsmith840@gmail.com'";
+ */   	
 
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
- */   	
     sql.connect(configString, function (err) {
     
         if (err){
