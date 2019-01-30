@@ -11,7 +11,7 @@ var cors = require('cors');
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-		var identity = req.header('x-ms-client-principal-name').tostring();
+		var identity = req.header('x-ms-client-principal-name');
 		//var user = req.headers['authorization'].tostring();
 			var QueryString = 'InvoiceCustomerGoogleSP';
 /*
