@@ -10,11 +10,15 @@ var cors = require('cors');
 
 app.use(bodyParser.json());
 
-app.post('/', function (req, res) {
-
+app.get('/', function (req, res) {
+		var identity = req.header('x-ms-client-principal-name');
+		//var user = req.headers['authorization'].tostring();
+/*
+		
 		var requestString = JSON.stringify(req.body);
 			requestObj = JSON.parse(requestString);
-			var QueryString = requestObj.QueryString;
+			//var QueryString = requestObj.QueryString;
+			var QueryString = 'InvoiceCustomerGoogleSP';
 
     	var sqlParams = "";
 			for (x in requestObj.Params){
@@ -22,19 +26,19 @@ app.post('/', function (req, res) {
 				//var Param2 = requestObj.Params[x];
 			}
 		sqlParams = sqlParams.slice(1);
-    	var sqlstring = "Exec " + QueryString + sqlParams;
+    	//var sqlstring = "Exec " + QueryString + sqlParams;
+    	//var sqlstring = "Exec InvoiceCustomerGoogleSP, @Google 'jonsmith840@gmail.com'";
 
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
     	
-
     sql.connect(configString, function (err) {
     
         if (err){
         	console.log(err);
         } 
 		var request = new sql.Request();
-        //request.input('Staff', sql.Int, 7);
+        //request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
 			for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
@@ -48,8 +52,6 @@ app.post('/', function (req, res) {
 			}
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
-        		/*
-            */
             if (err) console.log(err)
 
             // send records as a response
@@ -59,8 +61,9 @@ app.post('/', function (req, res) {
             sql.close();
         });
         
-    });
-    
+    });*/
+    res.end(identity + " nothing is what's coming through");
+    //res.end(JSON.stringify(req.headers));
     
 }).listen(process.env.PORT || 8080);
 /*
