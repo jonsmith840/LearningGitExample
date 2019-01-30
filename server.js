@@ -38,7 +38,7 @@ app.get('/', function (req, res) {
         	console.log(err);
         } 
 		var request = new sql.Request();
-        request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
+        request.input('Google', sql.VarChar, identity);
 			/*for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
