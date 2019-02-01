@@ -9,9 +9,12 @@
         	$(document).ready(function(){
         		$.get("./",function(data){
         			alert("Javascript working.");
-        			var myObj = JSON.parse(data);
-        			$("#StuffGoesHere").innerHTML(myObj.Google + " or nothing");
-        			//$("#StuffGoesHere").text("there had to be something");
+        			if (data){
+        				var myObj = JSON.parse(data);
+        				$("#StuffGoesHere").innerHTML(myObj.Google + " or nothing");
+        			} else {
+        				$("#StuffGoesHere").text("there had to be something");
+        			}
         			});
         	});
         </script>
