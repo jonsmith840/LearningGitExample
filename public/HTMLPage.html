@@ -18,7 +18,7 @@
         			}
         		});*/
         			$.getJSON( "./", function( data, status ) {
-        			alert(data);
+        			alert(status);
         			var items = [];
         			$.each( data, function( key, val ) {
         			items.push( "<li id='" + key + "'>" + val + "</li>" );
