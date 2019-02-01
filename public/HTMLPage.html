@@ -23,7 +23,7 @@
         			$.each( data, function( key, val ) {
         			items.push( "<li id='" + key + "'>" + val + "</li>" );
         			});
-        			if (items.count()){
+        			if (items.length()){
         			$( "<ul/>", {
 					"class": "my-new-list",
 					html: items.join( "" )
