@@ -18,10 +18,17 @@
         		//});
         			$.getJSON( "./", function( data, status ) {
         			alert(data);
-        			var items = [];
-        			$.each( data, function( key, val ) {
-        			items.push( "<li id='" + key + "'>" + val + "</li>" );
-        			});
+        			//var items = [];
+        			//$.each( data, function( key, val ) {
+        			//items.push( "<li id='" + key + "'>" + val + "</li>" );
+        			//});
+                var html = "<ul>";
+                items = data.map(function(obj){
+                   html += "<li id='" + obj.id + "'>" + obj.mesi + "</li";
+                });
+                html += "</ul>";
+
+                $('body').append(html);
         			//if (items.length()){
 					//$("#StuffGoesHere").innerHTML(" something");
         			//} else {
