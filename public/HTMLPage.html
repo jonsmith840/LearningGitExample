@@ -23,7 +23,7 @@
         			//items.push( "<li id='" + key + "'>" + val + "</li>" );
         			//});
                 var ulHtml = "<ul>";
-                $.each(data, function(key, obj) {
+                $.each(data[0], function(key, obj) {
                     ulHtml += '<li id="' + obj.id + '">' + obj.mesi + '</li>';
                 });
                 ulHtml += "</ul>";
