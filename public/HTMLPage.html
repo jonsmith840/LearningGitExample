@@ -9,11 +9,11 @@
         	$(document).ready(function(){
         		$.get("./",function(data){
         			alert("Javascript working.");
-        			if (data){
+        			if (data.isemptyobject()){
+        				$("#StuffGoesHere").innerHTML("there had to be something");
+        			} else {
         				var myObj = JSON.parse(data);
         				$("#StuffGoesHere").innerHTML(myObj.Google + " or nothing");
-        			} else {
-        				$("#StuffGoesHere").text("there had to be something");
         			}
         			});
         	});
