@@ -9,8 +9,8 @@
         	$(document).ready(function(){
         		$.get("./",function(data){
         			alert("Javascript working.");
-        			//$("#StuffGoesHere").text(json.parse(data));
-        			$("#StuffGoesHere").text("there had to be something");
+        			$("#StuffGoesHere").text(json.parse(data) + " or nothing");
+        			//$("#StuffGoesHere").text("there had to be something");
         			});
         	});
         </script>
