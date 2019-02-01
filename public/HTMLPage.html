@@ -6,7 +6,8 @@
         <meta charset="utf-8" />
         <title>Oxford Open Learning Testapp</title>
         <script>
-        	document.ready(function(){
+        	$(document).ready(function(){
+        		alert("Javascript working.");
         		$.get("./",function(data){
         			$("#StuffGoesHere").text(data);
         			});
