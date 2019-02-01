@@ -18,20 +18,20 @@
         			}
         		});*/
         			$.getJSON( "./", function( data, status ) {
-        			alert(status);
+        			alert(data);
         			var items = [];
         			$.each( data, function( key, val ) {
         			items.push( "<li id='" + key + "'>" + val + "</li>" );
         			});
         			if (items.count()){
         			$( "<ul/>", {
-        			"class": "my-new-list",
-        			html: items.join( "" )
-        			}).appendTo( "body" );
-        			});
+					"class": "my-new-list",
+					html: items.join( "" )
+					}).appendTo( "body" );
         			} else {
         				("#StuffGoesHere").innerHTML(" or nothing");
         			}
+        			});
         	});
         </script>
     </head>
