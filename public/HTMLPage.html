@@ -7,9 +7,9 @@
         <title>Oxford Open Learning Testapp</title>
         <script>
         	$(document).ready(function(){
-        		alert("Javascript working.");
         		$.get("./",function(data){
-        			$("#StuffGoesHere").text(data);
+        			alert("Javascript working.");
+        			$("#StuffGoesHere").text(json.stringify(data));
         			});
         	});
         </script>
