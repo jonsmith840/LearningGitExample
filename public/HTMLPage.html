@@ -18,14 +18,14 @@
         		//});
         			$.getJSON( "./", function( data, status ) {
         			alert(data);
-        			//var items = [];
-        			//$.each( data, function( key, val ) {
-        			//items.push( "<li id='" + key + "'>" + val + "</li>" );
-        			//});
+        			var items = [];
+        			$.each( data, function( key, val ) {
+        			items.push( "<li id='" + key + "'>" + val + "</li>" );
+        			});
         			//if (items.length()){
 					//$("#StuffGoesHere").innerHTML(" something");
         			//} else {
-        				$("#StuffGoesHere").text(" or nothing");
+        				$("#StuffGoesHere").text("items push");
         			//}
         			});
         	});
