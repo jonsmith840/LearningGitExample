@@ -17,13 +17,13 @@
         			//}
         		//});
         			$.getJSON( "./", function( data, status ) {
-        			alert(data);
+        			alert(status);
         			var items = [];
         			$.each( data, function( key, val ) {
         			items.push( "<li id='" + key + "'>" + val + "</li>" );
         			
         			if (items.length()){
-					$("#StuffGoesHere").(" something");
+					$("#StuffGoesHere").innerHTML(" something");
         			} else {
         				$("#StuffGoesHere").innerHTML(" or nothing");
         			}
@@ -32,7 +32,7 @@
         </script>
     </head>
     <body>
-    Nothing to see here. Move along now please. Awaiting some abbreviated working Javascript. 
+    Nothing to see here. Move along now please. Awaiting some corrected working Javascript. 
     <div id="StuffGoesHere"></div>
     </body>
 </html>
