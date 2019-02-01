@@ -11,7 +11,7 @@ var cors = require('cors');
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-		//var identity = req.header('x-ms-client-principal-name');
+		var identity = req.header('x-ms-client-principal-name');
 		//var user = req.headers['authorization'].tostring();
 			var QueryString = 'InvoiceCustomerGoogleSP';
 /*
@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
         	console.log(err);
         } 
 		var request = new sql.Request();
-        request.input('Google', sql.VarChar, 'jonsmith840@gmail.com');
+        request.input('Google', sql.VarChar, identity);
 			/*for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
