@@ -7,14 +7,27 @@
         <title>Oxford Open Learning Testapp</title>
         <script>
         	$(document).ready(function(){
+        		/*
         		$.get("./",function(data, status){
-        			alert(status);
+        			
         			if (data.isemptyobject()){
         				$("#StuffGoesHere").innerHTML("there had to be something");
         			} else {
         				//var myObj = JSON.parse(data);
         				$("#StuffGoesHere").innerHTML(" or nothing");
         			}
+        		});*/
+        			$.getJSON( "./", function( data, status ) {
+        			alert(status);
+        			var items = [];
+        			$.each( data, function( key, val ) {
+        			items.push( "<li id='" + key + "'>" + val + "</li>" );
+        			});
+        			
+        			$( "<ul/>", {
+        			"class": "my-new-list",
+        			html: items.join( "" )
+        			}).appendTo( "body" );
         			});
         	});
         </script>
