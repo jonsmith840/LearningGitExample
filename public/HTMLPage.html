@@ -19,20 +19,20 @@
         		});*/
         			$.getJSON( "./", function( data, status ) {
         			alert(data);
+        			/*
         			var items = [];
         			$.each( data, function( key, val ) {
         			items.push( "<li id='" + key + "'>" + val + "</li>" );
         			});
-        			/*
         			if (items.length()){
         			$( "<ul/>", {
 					"class": "my-new-list",
 					html: items.join( "" )
 					}).appendTo( "body" );*/
-					$("#StuffGoesHere").t(" somehing");
+					$("#StuffGoesHere").(" something");
 				*/
         			//} else {
-        				$("#StuffGoesHere").text(" or nothing");
+        				$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         			});
         	});
