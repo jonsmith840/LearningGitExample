@@ -7,8 +7,8 @@
         <title>Oxford Open Learning Testapp</title>
         <script>
         	$(document).ready(function(){
-        		$.get("./",function(data){
-        			alert("Javascript working.");
+        		$.get("./",function(data, status){
+        			alert(status);
         			if (data.isemptyobject()){
         				$("#StuffGoesHere").innerHTML("there had to be something");
         			} else {
