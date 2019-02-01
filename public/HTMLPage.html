@@ -22,11 +22,14 @@
         			//$.each( data, function( key, val ) {
         			//items.push( "<li id='" + key + "'>" + val + "</li>" );
         			//});
-                var html = "<ul>";
-                var items = data.map(function(obj){
-                   html += "<li id='" + obj.id + "'>" + obj.mesi + "</li";
+                var ulHtml = "<ul>";
+                $.each(data, function(key, obj) {
+                    ulHtml += '<li id="' + obj.id + '">' + obj.mesi + '</li>';
                 });
-                html += "</ul>";
+                ulHtml += "</ul>";
+                // please check logs in browser console
+                console.log(ulHtml);
+                $('body').append(ulHtml);
 
                 $('body').append(html);
         			//if (items.length()){
