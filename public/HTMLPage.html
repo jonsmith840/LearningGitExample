@@ -17,7 +17,7 @@
         				//$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         		//});
-        			$.get( "./", '{"QueryString" : "StaffActionPointsSP" ,"Params" : {"Staff": 7}}', function( data ) {
+        			$.post( "./", '{"QueryString" : "StaffActionPointsSP" ,"Params" : {"Staff": 7}}', function( data ) {
         			alert(JSON.stringify(data));
                 var ulHtml = "<ul>";
                 $.each(data, function(key, datarow) {
