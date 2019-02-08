@@ -17,7 +17,7 @@
         				//$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         		//});
-        			$.post(
+        			$.post({
         			url: "./",
         			data: JSON.stringify(postjson),
         			dataType: 'json''
@@ -40,8 +40,9 @@
         			//} else {
         				$("#StuffGoesHere").text("items push");
         			//}
+        			}
         			});
-        	});
+        	);
         </script>
     </head>
     <body>
