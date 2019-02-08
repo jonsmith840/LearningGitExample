@@ -7,6 +7,12 @@
         <title>Oxford Open Learning Testapp</title>
         <script type="text/javascript">
         	$(document).ready( function(){
+        		var postjson = JSON.stringify('{
+        			"QueryString" : "StaffActionPointsSP" ,
+        			"Params" : {
+        				"Staff": 7
+        			}
+        		}');
         		//$.get("https://learninggitexample.azurewebsites.net" , function(data, status){
         			
         			//if (data.isemptyobject()){
@@ -17,7 +23,8 @@
         			//}
         		//});
         			$.get(
-        			url: "./", 
+        			url: "./",
+        			data: postjson,
         			datatype: "json",
         			success: function( data, status ) {
         			alert(JSON.stringify(data));
