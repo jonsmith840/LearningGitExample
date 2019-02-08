@@ -16,7 +16,10 @@
         				//$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         		//});
-        			$.getJSON( "./", function( data, status ) {
+        			$.get(
+        			url: "./", 
+        			datatype: "json",
+        			success: function( data, status ) {
         			alert(JSON.stringify(data));
                 var ulHtml = "<ul>";
                 $.each(data, function(key, datarow) {
