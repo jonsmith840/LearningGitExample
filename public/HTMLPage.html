@@ -18,16 +18,16 @@
         		//});
         			$.getJSON( "./", function( data, status ) {
         			alert(JSON.stringify(data));
-        			myobj = JSON.parse(JSON.stringify(data));
+        			var myobj = JSON.parse(JSON.stringify(data));
         			//var items = [];
         			//$.each( data, function( key, val ) {
         			//items.push( "<li id='" + key + "'>" + val + "</li>" );
         			//});
                 var ulHtml = "<ul>";
-                //$.each(data[0], function(key, obj) {
-                    //ulHtml += '<li id="' + data[0][InvoiceCustomer] + '">' + data[0][Code] + '</li>';
-                    ulHtml += '<li id="' + myobj[0][InvoiceCustomer] + '">' + myobj[0][Code] + '</li>';
-                //});
+                $.each(myobj[0], function(key, obj) {
+                    ulHtml += '<li id="' + obj.InvoiceCustomer + '">' + obj.Code + '</li>';
+                    //ulHtml += '<li id="' + myobj[0].InvoiceCustomer. + '">' + myobj[0].Code + '</li>';
+                });
                 ulHtml += "</ul>";
                 // please check logs in browser console
                 console.log(ulHtml);
