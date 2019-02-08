@@ -25,8 +25,8 @@
         			//});
                 var ulHtml = "<ul>";
                 $.each(myobj[0], function(key, obj) {
-                    ulHtml += '<li id="' + obj.InvoiceCustomer + '">' + obj.Code + '</li>';
-                    //ulHtml += '<li id="' + myobj[0].InvoiceCustomer. + '">' + myobj[0].Code + '</li>';
+                    //ulHtml += '<li id="' + obj.InvoiceCustomer + '">' + obj.Code + '</li>';
+                    ulHtml += '<li>' + JSON.stringify(obj) + '</li>';
                 });
                 ulHtml += "</ul>";
                 // please check logs in browser console
