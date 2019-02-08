@@ -26,7 +26,7 @@
                 var ulHtml = "<ul>";
                 $.each(data[0], function(key, obj) {
                     //ulHtml += '<li id="' + obj.InvoiceCustomer + '">' + obj.Code + '</li>';
-                    ulHtml += '<li id="' + JSON.stringify(key) + '">' + JSON.stringify(obj) + '</li>';
+                    ulHtml += '<li id="' + key + '">' + obj + '</li>';
                 });
                 ulHtml += "</ul>";
                 // please check logs in browser console
