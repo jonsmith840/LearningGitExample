@@ -17,11 +17,7 @@
         				//$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         		//});
-        			$.get(
-        			url: "./",
-        			data: '{"QueryString" : "StaffActionPointsSP" ,"Params" : {"Staff": 7}}',
-        			datatype: "json",
-        			success: function( data ) {
+        			$.get( "./", '{"QueryString" : "StaffActionPointsSP" ,"Params" : {"Staff": 7}}', function( data ) {
         			alert(JSON.stringify(data));
                 var ulHtml = "<ul>";
                 $.each(data, function(key, datarow) {
