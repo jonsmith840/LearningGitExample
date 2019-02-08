@@ -17,7 +17,7 @@ app.post('/', function (req, res) {
 
 		
 		var requestString = JSON.stringify(req.body);
-			requestObj = JSON.parse(requestString);
+			var requestObj = JSON.parse(requestString);
 			var QueryString = requestObj.QueryString;
 
 			var sqlParams = "";
