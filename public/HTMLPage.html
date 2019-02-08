@@ -17,7 +17,8 @@
         				//$("#StuffGoesHere").innerHTML(" or nothing");
         			//}
         		//});
-        			$.get({
+        			$.ajax({
+        			type: 'get',
         			data: JSON.stringify(postjson),
         			dataType: 'json',
         			contentType: 'application/json; charset=utf-8',
