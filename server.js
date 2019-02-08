@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 app.post('/', function (req, res) {
 		var identity = req.header('x-ms-client-principal-name');
 		//var user = req.headers['authorization'].tostring();
-			var QueryString = 'InvoiceCustomerGoogleSP';
+			//var QueryString = 'InvoiceCustomerGoogleSP';
 
-		/*
+		
 		var requestString = JSON.stringify(req.body);
 			var requestObj = JSON.parse(requestString);
 			var QueryString = requestObj.QueryString;
@@ -28,7 +28,7 @@ app.post('/', function (req, res) {
 			sqlParams = sqlParams.slice(1);
     	//var sqlstring = "Exec " + QueryString + sqlParams;
     	//var sqlstring = "Exec InvoiceCustomerGoogleSP, @Google 'jonsmith840@gmail.com'";
-   	*/
+   	
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;  
     sql.connect(configString, function (err) {
@@ -37,8 +37,8 @@ app.post('/', function (req, res) {
         	console.log(err);
         } 
 		var request = new sql.Request();
-        request.input('Google', sql.VarChar, identity);
-			/*for (x in requestObj.Params){
+        //request.input('Google', sql.VarChar, identity);
+			for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
 				} else {
@@ -48,7 +48,7 @@ app.post('/', function (req, res) {
 						request.input(x, sql.Float, requestObj.Params[x]);
 					}
 				}
-			}*/
+			}
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
             if (err) console.log(err)
