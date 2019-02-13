@@ -11,6 +11,7 @@
         <title>Oxford Open Learning Testapp</title>
         <script type="text/javascript">
         	$(document).ready( function(){
+            $("#header").load("header.html");
         		var postjson = { QueryString : "StaffActionPointsSP" , Params : { Staff: 7}};
         		//$.get("https://learninggitexample.azurewebsites.net" , function(data, status){
 
@@ -51,6 +52,7 @@
         </script>
     </head>
     <body>
+      <div id="header"></div>
     <h3>Nothing to see here. Move along now please. Awaiting some minimal working Javascript.</h3>
     <div id="StuffGoesHere"></div>
     </body>
