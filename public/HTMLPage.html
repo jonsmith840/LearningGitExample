@@ -22,7 +22,7 @@
         			dataType: 'json',
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
-        			alert(JSON.stringify(data));
+        			//alert(JSON.stringify(data));
 				var tableHtml = "<table><tr><th>Reference</th><th>Contact</th></tr>";
 				$.each(data, function(key, datarow) {
 					tableHtml += '<tr><td>' + datarow.Event_Reference + '</td><td>' + datarow.Contact + '</td></tr>';
@@ -32,7 +32,7 @@
 				tableHtml += "<h3>A total of " + items + " items.</h3>";
 				// please check logs in browser console
 				console.log(tableHtml);
-				$('#StuffGoesHere').append(tableHtml);
+				$('#StuffGoesHere').innerHTML(tableHtml);
 
         			//if (items.length()){
 					//$("#StuffGoesHere").innerHTML(" something");
