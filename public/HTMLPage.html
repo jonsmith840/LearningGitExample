@@ -32,14 +32,14 @@
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
         			alert(JSON.stringify(data));
-                var tableHtml = "<table>";
+                var tableHtml = "<table><th><td>Reference</td><td>Contact</td></th>";
                 $.each(data, function(key, datarow) {
                 	tableHtml += "<tr>";
                 	$.each(datarow, function(key, obj) {
-                		if (key == "Event_Reference"){
+                		//if (key == "Event_Reference"){
                 		//tableHtml += '<li id="' + key + '">' + obj + '</li>';
-                		tableHtml += '<td>' + datarow.Event_Reference + '</td>';
-                		}
+                		tableHtml += '<td>' + datarow.Event_Reference + '</td><td>' + datarow.Contact + '</td>';
+                		//}
                 	});
                 	tableHtml += "</tr>";
                 });
