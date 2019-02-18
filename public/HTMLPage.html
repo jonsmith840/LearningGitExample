@@ -32,14 +32,13 @@
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
         			alert(JSON.stringify(data));
-        			var dataarray = JSON.parse(data);
                 var tableHtml = "<table>";
-                $.each(dataarray, function(key, datarow) {
+                $.each(data, function(key, datarow) {
                 	tableHtml += "<tr>";
                 	$.each(datarow, function(key, obj) {
                 		if (key == "Event_Reference"){
                 		//tableHtml += '<li id="' + key + '">' + obj + '</li>';
-                		tableHtml += '<td>' + obj + '</td>';
+                		tableHtml += '<td>' + datarow.Event_Reference + '</td>';
                 		}
                 	});
                 	tableHtml += "</tr>";
