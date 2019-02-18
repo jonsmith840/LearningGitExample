@@ -42,11 +42,11 @@
 				data: JSON.stringify(idjson),
 				dataType: 'json',
 				contentType: 'application/json; charset=utf-8',
-				success: function( data ) {
+				success: function( iddata ) {
 				//alert(JSON.stringify(data));
 				var welcomeHtml = "Welcome ";
-				$.each(data, function(key, datarow) {
-					welcomeHtml += datarow.FirstName + ' ' + datarow.LastName;
+				$.each(iddata, function(key, iddatarow) {
+					welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
 				});
 				welcomeHtml += ".";
 				console.log(welcomeHtml);
