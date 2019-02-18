@@ -37,6 +37,8 @@
                 	tableHtml += '<tr><td>' + datarow.Event_Reference + '</td><td>' + datarow.Contact + '</td></tr>';
                 });
                 tableHtml += "</table>";
+                var items = data.length;
+                tableHtml += "<h3>A total of " + items + " items.</h3>";
                 // please check logs in browser console
                 console.log(tableHtml);
                 $('body').append(tableHtml);
