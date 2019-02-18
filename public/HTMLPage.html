@@ -15,15 +15,6 @@
         	$(document).ready( function(){
             $("#header").load("header.html");
         		var postjson = { QueryString : "StaffActionPointsSP" , Params : { Staff: 7}};
-        		//$.get("https://learninggitexample.azurewebsites.net" , function(data, status){
-
-        			//if (data.isemptyobject()){
-        				//$("#StuffGoesHere").innerHTML("there had to be something");
-        			//} else {
-        				//var myObj = JSON.parse(data);
-        				//$("#StuffGoesHere").innerHTML(" or nothing");
-        			//}
-        		//});
         			$.ajax({
         			url: './',
         			type: 'post',
@@ -32,21 +23,21 @@
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
         			alert(JSON.stringify(data));
-                var tableHtml = "<table><tr><th>Reference</th><th>Contact</th></tr>";
-                $.each(data, function(key, datarow) {
-                	tableHtml += '<tr><td>' + datarow.Event_Reference + '</td><td>' + datarow.Contact + '</td></tr>';
-                });
-                tableHtml += "</table>";
-                var items = data.length;
-                tableHtml += "<h3>A total of " + items + " items.</h3>";
-                // please check logs in browser console
-                console.log(tableHtml);
-                $('body').append(tableHtml);
+				var tableHtml = "<table><tr><th>Reference</th><th>Contact</th></tr>";
+				$.each(data, function(key, datarow) {
+					tableHtml += '<tr><td>' + datarow.Event_Reference + '</td><td>' + datarow.Contact + '</td></tr>';
+				});
+				tableHtml += "</table>";
+				var items = data.length;
+				tableHtml += "<h3>A total of " + items + " items.</h3>";
+				// please check logs in browser console
+				console.log(tableHtml);
+				$('#StuffGoesHere').append(tableHtml);
 
         			//if (items.length()){
 					//$("#StuffGoesHere").innerHTML(" something");
         			//} else {
-        				$("#StuffGoesHere").text("items push");
+        				//$("#StuffGoesHere").text("items push");
         			//}
         			}
         			});
