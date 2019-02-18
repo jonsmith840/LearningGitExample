@@ -34,13 +34,13 @@
         			alert(JSON.stringify(data));
                 var tableHtml = "<table>";
                 $.each(data, function(key, datarow) {
-                	tableHtml += "<row>";
+                	tableHtml += "<tr>";
                 	$.each(datarow, function(key, obj) {
                 		if (key == "Event_Reference"){
                 		//tableHtml += '<li id="' + key + '">' + obj + '</li>';
-                		tableHtml += '<cell>' + obj + '</cell>';
+                		tableHtml += '<td>' + obj + '</td>';
                 	});
-                	tableHtml += "</row>";
+                	tableHtml += "</tr>";
                 });
                 tableHtml += "</table>";
                 // please check logs in browser console
