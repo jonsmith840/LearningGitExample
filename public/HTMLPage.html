@@ -34,24 +34,24 @@
 				console.log(tableHtml);
 				$('#StuffGoesHere').append(tableHtml);
 				}
-			});
-        		var idjson = { QueryString : "InvoiceCustomerAuthIDSP" , Params : {}};
-			$.ajax({
-				url: './',
-				type: 'post',
-				data: JSON.stringify(idjson),
-				dataType: 'json',
-				contentType: 'application/json; charset=utf-8',
-				success: function( iddata ) {
-				//alert(JSON.stringify(data));
-				var welcomeHtml = "Welcome ";
-				$.each(iddata, function(key, iddatarow) {
-					welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
+				var idjson = { QueryString : "InvoiceCustomerAuthIDSP" , Params : {}};
+				$.ajax({
+					url: './',
+					type: 'post',
+					data: JSON.stringify(idjson),
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					success: function( iddata ) {
+					//alert(JSON.stringify(data));
+					var welcomeHtml = "Welcome ";
+					$.each(iddata, function(key, iddatarow) {
+						welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
+					});
+					welcomeHtml += ".";
+					console.log(welcomeHtml);
+					$('#WelcomeMessage').append(welcomeHtml);
+					}
 				});
-				welcomeHtml += ".";
-				console.log(welcomeHtml);
-				$('#WelcomeMessage').append(welcomeHtml);
-				}
 			});
         	});
         </script>
