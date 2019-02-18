@@ -32,8 +32,9 @@
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
         			alert(JSON.stringify(data));
+        			var dataarray = JSON.parse(data);
                 var tableHtml = "<table>";
-                $.each(data, function(key, datarow) {
+                $.each(dataarray, function(key, datarow) {
                 	tableHtml += "<tr>";
                 	$.each(datarow, function(key, obj) {
                 		if (key == "Event_Reference"){
