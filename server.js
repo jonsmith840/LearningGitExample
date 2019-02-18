@@ -38,17 +38,17 @@ app.post('/', function (req, res) {
         } 
 		var request = new sql.Request();
 		request.input('AuthID', sql.VarChar, identity);
-			//for (x in requestObj.Params){
-				//if (isNaN(requestObj.Params[x])){
-					//request.input(x, sql.VarChar, requestObj.Params[x]);
-				//} else {
-					//if (Number.isInteger(requestObj.Params[x])){
-						//request.input(x, sql.Int, requestObj.Params[x]);
-					//} else {
-						//request.input(x, sql.Float, requestObj.Params[x]);
-					//}
-				//}
-			//}
+			for (x in requestObj.Params){
+				if (isNaN(requestObj.Params[x])){
+					request.input(x, sql.VarChar, requestObj.Params[x]);
+				} else {
+					if (Number.isInteger(requestObj.Params[x])){
+						request.input(x, sql.Int, requestObj.Params[x]);
+					} else {
+						request.input(x, sql.Float, requestObj.Params[x]);
+					}
+				}
+			}
         request.execute(QueryString, function (err, result) {
         //request.query(sqlstring, function (err, recordset) {
             if (err) console.log(err)
