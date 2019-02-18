@@ -32,13 +32,17 @@
         			contentType: 'application/json; charset=utf-8',
         			success: function( data ) {
         			alert(JSON.stringify(data));
-                var ulHtml = "<ul>";
+                var tableHtml = "<table>";
                 $.each(data, function(key, datarow) {
+                	tableHtml += "<row>";
                 	$.each(datarow, function(key, obj) {
-                		ulHtml += '<li id="' + key + '">' + obj + '</li>';
+                		if (key == "Event_Reference"){
+                		//tableHtml += '<li id="' + key + '">' + obj + '</li>';
+                		tableHtml += '<cell>' + obj + '</cell>';
                 	});
+                	tableHtml += "</row>";
                 });
-                ulHtml += "</ul>";
+                tableHtml += "</table>";
                 // please check logs in browser console
                 console.log(ulHtml);
                 $('body').append(ulHtml);
