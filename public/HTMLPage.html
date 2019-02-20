@@ -23,7 +23,7 @@
 				contentType: 'application/json; charset=utf-8',
 				success: function( data ) {
 				//alert(JSON.stringify(data));
-        var welcomeHtml = 'Welcome ' + data[0].FirstName + ' ' + data[0].LastName + '.';
+        var welcomeHtml = 'Welcome ' + data[0].AuthName + '.';
         console.log(welcomeHtml);
         $('#WelcomeMessage').append(welcomeHtml);
 				var tableHtml = "<table><tr><th>Name</th><th>Contact</th></tr>";
