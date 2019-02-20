@@ -23,6 +23,9 @@
 				contentType: 'application/json; charset=utf-8',
 				success: function( data ) {
 				//alert(JSON.stringify(data));
+        var welcomeHtml = 'Welcome ' + data[0].FirstName + ' ' + data[0].LastName + '.';
+        console.log(welcomeHtml);
+        $('#WelcomeMessage').append(welcomeHtml);
 				var tableHtml = "<table><tr><th>Name</th><th>Contact</th></tr>";
 				$.each(data, function(key, datarow) {
 					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td></tr>';
@@ -33,24 +36,23 @@
 				// please check logs in browser console
 				console.log(tableHtml);
 				$('#StuffGoesHere').append(tableHtml);
-				var idjson = { QueryString : "InvoiceCustomerAuthIDSP" , Params : {}};
-				$.ajax({
-					url: './',
-					type: 'post',
-					data: JSON.stringify(idjson),
-					dataType: 'json',
-					contentType: 'application/json; charset=utf-8',
-					success: function( iddata ) {
+				//var idjson = { QueryString : "InvoiceCustomerAuthIDSP" , Params : {}};
+				//$.ajax({
+				//url: './',
+					//type: 'post',
+					//data: JSON.stringify(idjson),
+					//dataType: 'json',
+					//contentType: 'application/json; charset=utf-8',
+					//success: function( iddata ) {
 					//alert(JSON.stringify(data));
-					var welcomeHtml = "Welcome ";
-					$.each(iddata, function(key, iddatarow) {
-						welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
-					});
-					welcomeHtml += ".";
-					console.log(welcomeHtml);
-					$('#WelcomeMessage').append(welcomeHtml);
-					}
-				});
+					//$.each(iddata, function(key, iddatarow) {
+						//welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
+					//});
+					  //welcomeHtml += ".";
+					//console.log(welcomeHtml);
+					//$('#WelcomeMessage').append(welcomeHtml);
+					//}
+				//});
 				}
 			});
         	});
