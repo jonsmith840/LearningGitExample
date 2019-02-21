@@ -12,6 +12,9 @@
         <meta charset="utf-8" />
         <title>Oxford Open Learning for Mentors & Supervisors</title>
         <script type="text/javascript">
+        function showList(){
+          $('#StuffGoesHere').toggle();
+        }
         	$(document).ready( function(){
         		$("#header").load("header.html");
         		var postjson = { QueryString : "InvoiceCustomerContactsAuthSP" , Params : {}};
@@ -31,7 +34,7 @@
 				});
 				tableHtml += "</table>";
 				var items = data.length;
-				welcomHtml += "<h3>A total of " + items + " items.</h3><button class='btn-default'>Nothing doing yet</button>");
+				welcomHtml += "<h3>A total of " + items + " items.</h3><button class='btn-default' onclick='showList();'>Show/hide</button>");
         $('#WelcomeMessage').html(welcomeHtml);
 				// please check logs in browser console
 				console.log(tableHtml);
