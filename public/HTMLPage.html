@@ -36,7 +36,7 @@
         console.log(welcomeHtml);
 				var tableHtml = "<table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
 				$.each(data, function(key, datarow) {
-					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '" onclick="ShowStudent()"></td></tr>';
+					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '" onclick="showStudent()"></td></tr>';
 				});
 				tableHtml += "</table>";
 				// please check logs in browser console
