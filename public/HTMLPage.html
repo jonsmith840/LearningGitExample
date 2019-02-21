@@ -16,6 +16,10 @@
           $('#StuffGoesHere').toggle();
         }
         	$(document).ready( function(){
+            $(#'SelectStudent').click(function(){
+              alert(this.val());
+            })
+
         		$("#header").load("header.html");
         		var postjson = { QueryString : "InvoiceCustomerContactsAuthSP" , Params : {}};
 			$.ajax({
@@ -30,9 +34,9 @@
         var welcomeHtml = 'Welcome ' + data[0].AuthName + "<h3>A total of " + items + " students. <button class='btn-default' onclick='showList()'>Show/hide</button></h3>";
         $('#WelcomeMessage').html(welcomeHtml);
         console.log(welcomeHtml);
-				var tableHtml = "<table><tr><th>Name</th><th>Contact</th></tr>";
+				var tableHtml = "<table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
 				$.each(data, function(key, datarow) {
-					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td></tr>';
+					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '"></td></tr>';
 				});
 				tableHtml += "</table>";
 				// please check logs in browser console
