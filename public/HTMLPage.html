@@ -17,6 +17,17 @@
         }
         function showStudent(Code){
           alert(Code);
+          var studentjson = { QueryString : "ContactDetailsAuthSP" , Params : {Contact: 380134}};
+          $.ajax({
+    				url: './',
+    				type: 'post',
+    				data: JSON.stringify(studentsjson),
+    				dataType: 'json',
+    				contentType: 'application/json; charset=utf-8',
+    				success: function( data ) {
+              console.log(data);
+            }
+          });
         }
         	$(document).ready( function(){
 
