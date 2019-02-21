@@ -16,8 +16,9 @@
           $('#StuffGoesHere').toggle();
         }
         	$(document).ready( function(){
-            $('#SelectStudent').click( function(){
-              alert($(this).closest('tr').find('td.StudentSelect').val());
+            $('#StudentList :checkbox').click( function(){
+              //alert($(this).closest('tr').find('td.StudentSelect').val());
+              alert('anything');
             })
 
         		$("#header").load("header.html");
