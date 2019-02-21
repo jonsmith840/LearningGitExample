@@ -32,7 +32,7 @@
 				});
 				tableHtml += "</table>";
 				var items = data.length;
-				tableHtml += "<h3>A total of " + items + " items.</h3>";
+				$('#WelcomeMessage').append("<h3>A total of " + items + " items.</h3><button class='btn-default'>Nothing doing yet</button>");
 				// please check logs in browser console
 				console.log(tableHtml);
 				$('#StuffGoesHere').html(tableHtml);
