@@ -25,8 +25,45 @@
     				dataType: 'json',
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
-              var studentHtml = "<h2>Student details for " + data[0].FirstName + " " + data[0].LastName + "</h2>";
-              alert(studentHtml);
+              var studentHtml = '<h2>Student details for ' + data[0].FirstName + ' ' + data[0].LastName + '</h2>';
+              studentHtml += '<div class="top-info">';
+
+              studentHtml += '<div class="top-info-left">';
+              studentHtml += '<div class="highlighted">';
+
+              studentHtml += '<h4>Full Student Details</h4>';
+              studentHtml += '<table class="tbl-top-info">';
+              studentHtml += '<tbody>';
+              studentHtml += '<tr>';
+              studentHtml += '<td>Name:</td>';
+              studentHtml += '<td>' + data[0].Title + ' ' + data[0].FirstName + ' ' + data[0].LastName +'</td>';
+              studentHtml += '</tr>';
+              studentHtml += '<tr>';
+              studentHtml += '<td>Address:</td>';
+              studentHtml += '<td>' + data[0].Street + '</td>';
+              studentHtml += '</tr>';
+              studentHtml += '<tr>';
+              studentHtml += '<td>Email:</td>';
+              studentHtml += '<td>' + data[0].email + '</td>';
+              studentHtml += '</tr>';
+              studentHtml += '<tr>';
+              studentHtml += '<td>Phone1:</td>';
+              studentHtml += '<td>' + data[0].Phone + '</td>';
+              studentHtml += '</tr>';
+              if (data[0].Work_Phone.length > 6){
+                studentHtml += '<tr>';
+                studentHtml += '<td>Phone2:</td>';
+                studentHtml += '<td>' + data[0].Work_Phone + '</td>';
+                studentHtml += '</tr>';
+              }
+              studentHtml += '</tbody>';
+              studentHtml += '</table>';
+
+              studentHtml += '</div>';
+              studentHtml += '</div>';
+              studentHtml += '</div>';
+  
+
               $('#StuffGoesHere').html(studentHtml);
               console.log(data);
             }
@@ -56,23 +93,6 @@
 				// please check logs in browser console
 				console.log(tableHtml);
 				$('#StuffGoesHere').html(tableHtml);
-				//var idjson = { QueryString : "InvoiceCustomerAuthIDSP" , Params : {}};
-				//$.ajax({
-				//url: './',
-					//type: 'post',
-					//data: JSON.stringify(idjson),
-					//dataType: 'json',
-					//contentType: 'application/json; charset=utf-8',
-					//success: function( iddata ) {
-					//alert(JSON.stringify(data));
-					//$.each(iddata, function(key, iddatarow) {
-						//welcomeHtml += iddatarow.FirstName + ' ' + iddatarow.LastName;
-					//});
-					  //welcomeHtml += ".";
-					//console.log(welcomeHtml);
-					//$('#WelcomeMessage').append(welcomeHtml);
-					//}
-				//});
 				}
 			});
         	});
