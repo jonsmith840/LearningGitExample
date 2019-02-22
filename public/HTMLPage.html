@@ -17,7 +17,6 @@
           $('#ShowHide').toggle();
         }
         function showStudent(Code){
-          alert(Code);
           var studentjson = { QueryString : "ContactDetailsAuthIDSP" , Params : {Contact : [Code]}};
           $.ajax({
     				url: './',
@@ -27,6 +26,7 @@
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
               var studentHtml = "<h2>Student details for " + data[0].FirstName + " " + data[0].LastName + "</h2>";
+              alert(studentHtml);
               $('#StuffGoesHere').html(studentHtml);
               console.log(data);
             }
