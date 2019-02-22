@@ -25,6 +25,12 @@
     				dataType: 'json',
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
+              var address = data[0].Street;
+              if (data[0].Locality.length) address += '<br>' + data[0].Locality;
+              if (data[0].Town.length) address += '<br>' + data[0].Town;
+              if (data[0].County.length) address += '<br>' + data[0].County;
+              if (data[0].Country.length) address += '<br>' + data[0].Country;
+              if (data[0].Postcode.length) address += '<br>' + data[0].Postcode;
               var studentHtml = '<h2>Student details for ' + data[0].FirstName + ' ' + data[0].LastName + '</h2>';
               studentHtml += '<div class="top-info">';
 
@@ -40,7 +46,7 @@
               studentHtml += '</tr>';
               studentHtml += '<tr>';
               studentHtml += '<td>Address:</td>';
-              studentHtml += '<td>' + data[0].Street + '</td>';
+              studentHtml += '<td>' + address + '</td>';
               studentHtml += '</tr>';
               studentHtml += '<tr>';
               studentHtml += '<td>Email:</td>';
@@ -62,7 +68,7 @@
               studentHtml += '</div>';
               studentHtml += '</div>';
               studentHtml += '</div>';
-  
+
 
               $('#StuffGoesHere').html(studentHtml);
               console.log(data);
