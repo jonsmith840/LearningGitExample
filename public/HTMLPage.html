@@ -45,7 +45,7 @@
 				success: function( data ) {
 				//alert(JSON.stringify(data));
         var items = data.length;
-        var welcomeHtml = 'Welcome ' + data[0].AuthName + "<h3>A total of " + items + " students. <button id='ShowHide' class='btn-default' onclick='showList()'>Show/hide</button></h3>";
+        var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>A total of " + items + " students. <button id='ShowHide' class='btn-default' onclick='showList()'>Show/hide</button></h3>";
         $('#WelcomeMessage').html(welcomeHtml);
         console.log(welcomeHtml);
 				var tableHtml = "<table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
@@ -80,7 +80,7 @@
     </head>
     <body>
       <div id="header"></div>
-    <h2><div id="WelcomeMessage"></div></h2>
+    <div id="WelcomeMessage" class="paper-white"></div>
     <div id="StuffGoesHere" style="display:none"></div>
     </body>
 </html>
