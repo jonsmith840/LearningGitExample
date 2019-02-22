@@ -16,6 +16,9 @@
           $('#StuffGoesHere').toggle();
           $('#ShowHide').toggle();
         }
+        function restoreStudentList(){
+          $('#StuffGoesHere').html(tableHtml);
+        }
         function showStudent(Code){
           var studentjson = { QueryString : "ContactDetailsAuthIDSP" , Params : {Contact : [Code]}};
           $.ajax({
