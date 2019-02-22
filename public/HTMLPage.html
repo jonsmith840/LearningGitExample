@@ -14,6 +14,7 @@
         <script type="text/javascript">
         function showList(){
           $('#StuffGoesHere').toggle();
+          $('#ShowHide').toggle();
         }
         function showStudent(Code){
           alert(Code);
@@ -25,6 +26,8 @@
     				dataType: 'json',
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
+              var studentHtml = "<h2>Student details for " + data[0].FirstName + " " + data[0].LastName + "</h2>";
+              $('#StuffGoesHere').html(studentHtml);
               console.log(data);
             }
           });
@@ -42,7 +45,7 @@
 				success: function( data ) {
 				//alert(JSON.stringify(data));
         var items = data.length;
-        var welcomeHtml = 'Welcome ' + data[0].AuthName + "<h3>A total of " + items + " students. <button class='btn-default' onclick='showList()'>Show/hide</button></h3>";
+        var welcomeHtml = 'Welcome ' + data[0].AuthName + "<h3>A total of " + items + " students. <button id='ShowHide' class='btn-default' onclick='showList()'>Show/hide</button></h3>";
         $('#WelcomeMessage').html(welcomeHtml);
         console.log(welcomeHtml);
 				var tableHtml = "<table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
