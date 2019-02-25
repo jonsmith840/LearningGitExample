@@ -93,7 +93,7 @@
                   var CourseOrCourses = ' course';
                   if (coursedata.length > 1) CourseOrCourses = ' courses';
                   var StartDate = new Date(coursedata[0].Date);
-                  console.log(StartDate.toLocaleDateString());
+                  console.log(substr(0,10,coursedata[0].Date));
                   var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div>';
                   //$('#courseDetails').append(coursedata[0].Invoice_Number + '');
                   courseTable += '<div class="tabs-holder"><table><tr><th>Invoice</th><th>Subject</th></tr>';
