@@ -89,11 +89,13 @@
         				dataType: 'json',
         				contentType: 'application/json; charset=utf-8',
         				success: function( coursedata ) {
-                  var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + ' course/s.</div></div>';
+                  var CourseOrCourses = ' course';
+                  if (coursedata.length > 1) CourseOrCourses = ' courses';
+                  var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div>';
                   //$('#courseDetails').append(coursedata[0].Invoice_Number + '');
-                  courseTable += '<div class="tabs-holder"><table><tr><th>Invoice</th></tr>';
+                  courseTable += '<div class="tabs-holder"><table><tr><th>Invoice</th><th>Subject</th></tr>';
                   $.each(coursedata, function(key, courserow){
-                    courseTable += '<tr><td>' + courserow.Invoice_Number + '</td></tr>';
+                    courseTable += '<tr><td>' + courserow.Invoice_Number + '</td><td>' + courserow.Subject + '</td></tr>';
                   });
                   courseTable += '</table></div>';
                   $('#courseDetails').html(courseTable);
