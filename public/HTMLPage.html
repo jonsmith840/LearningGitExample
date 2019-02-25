@@ -98,7 +98,7 @@
                   //$('#courseDetails').append(coursedata[0].Invoice_Number + '');
                   courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Tutor</th></tr>';
                   $.each(coursedata, function(key, courserow){
-                    courseTable += '<tr><td>' + substr(0,10,courserow.Date) + '</td><td>' + courserow.Subject_Name + '</td><td>' + courserow.Name + '</td></tr>';
+                    courseTable += '<tr><td>' + courserow.Date.substr(0,10) + '</td><td>' + courserow.Subject_Name + '</td><td>' + courserow.Name + '</td></tr>';
                   });
                   courseTable += '</table></div>';
                   $('#courseDetails').html(courseTable);
