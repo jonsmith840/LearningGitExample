@@ -14,6 +14,7 @@
         <title>Oxford Open Learning for Mentors & Supervisors</title>
         <script type="text/javascript">
         var tableHtml = '';
+        var selectedCourse = 0;
         function showList(){
           $('#StuffGoesHere').toggle();
           $('#ShowHide').toggle();
@@ -91,6 +92,8 @@
         				success: function( coursedata ) {
                   var CourseOrCourses = ' course';
                   if (coursedata.length > 1) CourseOrCourses = ' courses';
+                  var StartDate = new Date(coursedata[0].StartDate);
+                  console.log(StartDate.toDateString());
                   var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div>';
                   //$('#courseDetails').append(coursedata[0].Invoice_Number + '');
                   courseTable += '<div class="tabs-holder"><table><tr><th>Invoice</th><th>Subject</th></tr>';
