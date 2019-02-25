@@ -73,7 +73,9 @@
               studentHtml += '</div>';
               studentHtml += '</div>';
               studentHtml += '</div>';
-              studentHtml += '<div class="row-fluid" id="courseDetails"><div class="span2">with course details in here</div></div>';
+              studentHtml += '<div class="row-fluid"><div class="span2">&nbsp</div></div>';
+              studentHtml += '<div class="row-fluid" id="courseDetails">with course details in here</div>';
+              studentHtml += '<div class="row-fluid"><div class="span2">&nbsp</div></div>';
               studentHtml += '<div class="row-fluid"><div class="span2"><button class="btn-info" onclick="restoreStudentList()"> Show student list</button></div></div>';
 
 
@@ -87,8 +89,15 @@
         				dataType: 'json',
         				contentType: 'application/json; charset=utf-8',
         				success: function( coursedata ) {
-                  $('#courseDetails').html(data[0].FirstName + ' is studying ' + coursedata.length + ' course/s. Including ');
-                  $('#courseDetails').append(coursedata[0].Invoice_Number);
+                  $('#courseDetails').html('<div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + ' course/s. Including ');
+                  $('#courseDetails').append(coursedata[0].Invoice_Number + '</div>');
+                  var courseTable = '<div class="tabs-holder"><table><tr><th>Invoice</th></tr>';
+                  $.each(coursedata, function(courserow){
+                    courseTable += '<tr><td>' + courserow.Invoice_Number + '</td></tr>';
+                  });
+                  courseTable += '</table></div>';
+                  $('#courseDetails').append(courseTable);
+                  })
                 }
               });
             }
