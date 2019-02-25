@@ -92,13 +92,14 @@
         				success: function( coursedata ) {
                   var CourseOrCourses = ' course';
                   if (coursedata.length > 1) CourseOrCourses = ' courses';
-                  var StartDate = new Date(coursedata[0].Date);
+                  //var StartDate = new Date(coursedata[0].Date);
                   console.log(substr(0,10,coursedata[0].Date));
                   var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div>';
                   //$('#courseDetails').append(coursedata[0].Invoice_Number + '');
                   courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Tutor</th></tr>';
                   $.each(coursedata, function(key, courserow){
-                    courseTable += '<tr><td>' + courserow.Date.substr(0,10) + '</td><td>' + courserow.Subject_Name + '</td><td>' + courserow.Name + '</td></tr>';
+                    var StartDate =  courserow.Date;
+                    courseTable += '<tr><td>' + StartDate.substr(0,10) + '</td><td>' + courserow.Subject_Name + '</td><td>' + courserow.Name + '</td></tr>';
                   });
                   courseTable += '</table></div>';
                   $('#courseDetails').html(courseTable);
