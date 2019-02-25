@@ -79,11 +79,11 @@
 
               $('#StuffGoesHere').html(studentHtml);
               console.log(data);
-              var studentjson = { QueryString : "ContactCoursesAuthIDSP" , Params : {Contact : [Code]}};
+              var coursejson = { QueryString : "ContactCoursesAuthIDSP" , Params : {Contact : [Code]}};
               $.ajax({
         				url: './',
         				type: 'post',
-        				data: JSON.stringify(studentjson),
+        				data: JSON.stringify(coursejson),
         				dataType: 'json',
         				contentType: 'application/json; charset=utf-8',
         				success: function( coursedata ) {
