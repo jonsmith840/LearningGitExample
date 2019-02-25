@@ -79,6 +79,17 @@
 
               $('#StuffGoesHere').html(studentHtml);
               console.log(data);
+              var studentjson = { QueryString : "ContactCoursesAuthIDSP" , Params : {Contact : [Code]}};
+              $.ajax({
+        				url: './',
+        				type: 'post',
+        				data: JSON.stringify(studentjson),
+        				dataType: 'json',
+        				contentType: 'application/json; charset=utf-8',
+        				success: function( coursedata ) {
+                  $('#courseDetails').html(coursedata[0].Invoice_Number);
+                }
+              });
             }
           });
         }
