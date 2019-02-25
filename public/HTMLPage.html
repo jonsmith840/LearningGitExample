@@ -87,7 +87,8 @@
         				dataType: 'json',
         				contentType: 'application/json; charset=utf-8',
         				success: function( coursedata ) {
-                  $('#courseDetails').html(coursedata[0].Invoice_Number);
+                  $('#courseDetails').html(data[0].FirstName + ' is studying ' + coursedata.length + ' course/s. Including ');
+                  $('#courseDetails').append(coursedata[0].Invoice_Number);
                 }
               });
             }
