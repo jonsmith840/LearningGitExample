@@ -117,7 +117,7 @@
                     if (coursedata.length > 1) SelectCell = '<td><input type="radio" onclick="selectCourse(' + InvoiceNumber + ')"></td>';
                     courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td>' + SelectCell + '</tr>';
                   });
-                  courseTable += '</table><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success">Tutor Contact</button></div></div></form></div>';
+                  courseTable += '</table></form><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success">Tutor Contact</button></div></div></div>';
                   $('#courseDetails').html(courseTable);
                 }
               });
