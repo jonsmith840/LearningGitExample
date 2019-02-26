@@ -102,7 +102,7 @@
                   if (coursedata.length > 1) {
                     CourseOrCourses = ' courses';
                     SelectHeader = '<th>Select</th>';
-                    SelectCell = '<td><input type="radio" onclick="selectCourse(courserow.Invoice_Number)"></td>';
+                    SelectCell = '<td><input type="radio" onclick="selectCourse(' + courserow.Invoice_Number + ')"></td>';
                   } else {
                     selectCourse(coursedata[0].Invoice_Number);
                   }
