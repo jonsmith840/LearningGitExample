@@ -108,6 +108,7 @@
         	$(document).ready( function(){
 
         		$("#header").load("header.html");
+            $("#header").load("footer.html");
         		var postjson = { QueryString : "InvoiceCustomerContactsAuthSP" , Params : {}};
 			$.ajax({
 				url: './',
@@ -136,9 +137,10 @@
     </head>
     <body>
       <div id="header"></div>
-  <div  class="paper-white">
+  <section>
     <div id="WelcomeMessage"></div>
     <div id="StuffGoesHere" style="display:none"></div>
-  </div>
+  </section>
+  <div id="footer"></div>
     </body>
 </html>
