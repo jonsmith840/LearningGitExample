@@ -77,7 +77,7 @@
               studentHtml += '<div class="row-fluid"><div class="span2">&nbsp</div></div>';
               studentHtml += '<div id="courseDetails"></div>';
               studentHtml += '<div class="row-fluid"><div class="span2">&nbsp</div></div>';
-              studentHtml += '<div class="row-fluid"><div class="span2"><button class="btn-info" onclick="restoreStudentList()"> Show student list</button></div></div>';
+              studentHtml += '<div class="row-fluid"><div class="span4"><button class="btn-info" onclick="restoreStudentList()"> Show student list</button></div></div>';
 
 
               $('#StuffGoesHere').html(studentHtml);
@@ -92,7 +92,7 @@
         				success: function( coursedata ) {
                   var CourseOrCourses = ' course';
                   if (coursedata.length > 1) CourseOrCourses = ' courses';
-                  var courseTable = '<div class=row-fluid><div class="span2">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div>';
+                  var courseTable = '<div class=row-fluid><div class="span4">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div><div class="row-fluid"><div class="span2">&nbsp</div></div>';
                   courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Exam Date</th><th>Tutor</th></tr>';
                   $.each(coursedata, function(key, courserow){
                     var StartDate =  courserow.Date;
