@@ -15,14 +15,20 @@
         <script type="text/javascript">
         var tableHtml = '';
         var selectedCourse = 0;
+        var selectedContact = 0;
         function showList(){
           $('#StuffGoesHere').toggle();
           $('#ShowHide').toggle();
+        }
+        function selectCourse(Course){
+          selectedCourse = Course;
+          alert(selectedCourse);
         }
         function restoreStudentList(){
           $('#StuffGoesHere').html(tableHtml);
         }
         function showStudent(Code){
+          selectedContact = Code;
           var studentjson = { QueryString : "ContactDetailsAuthIDSP" , Params : {Contact : [Code]}};
           $.ajax({
     				url: './',
@@ -91,12 +97,20 @@
         				contentType: 'application/json; charset=utf-8',
         				success: function( coursedata ) {
                   var CourseOrCourses = ' course';
-                  if (coursedata.length > 1) CourseOrCourses = ' courses';
+                  var SelectHeader = '';
+                  var SelectCell = '';
+                  if (coursedata.length > 1) {
+                    CourseOrCourses = ' courses';
+                    SelectHeader = '<th>Select</th>';
+                    SelectCell = '<td><input type="radio" onclick="selectCourse(courserow.Invoice_Number)"></td>';
+                  } else {
+                    selectCourse(coursedata[0].Invoice_Number);
+                  }
                   var courseTable = '<div class=row-fluid><div class="span4">' + data[0].FirstName + ' is studying ' + coursedata.length + CourseOrCourses + '.</div></div><div class="row-fluid"><div class="span2">&nbsp</div></div>';
-                  courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Exam Date</th><th>Tutor</th></tr>';
+                  courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Exam Date</th><th>Tutor</th>' + SelectHeader + '</tr>';
                   $.each(coursedata, function(key, courserow){
                     var StartDate =  courserow.Date;
-                    courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td></tr>';
+                    courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td>' + SelectCell + '</tr>';
                   });
                   courseTable += '</table></div>';
                   $('#courseDetails').html(courseTable);
