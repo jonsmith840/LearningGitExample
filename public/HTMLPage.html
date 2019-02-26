@@ -28,6 +28,24 @@
         }
         function listAssignments(){
           alert(selectedCourse);
+          var assignmentjson = { QueryString : "AssignmentsAuthIDSP" , Params : {Course : [selectedCourse]}};
+          $.ajax({
+    				url: './',
+    				type: 'post',
+    				data: JSON.stringify(assignmentjson),
+    				dataType: 'json',
+    				contentType: 'application/json; charset=utf-8',
+    				success: function( data ) {
+              tableHtml = "<div class='tabs-holder'><table id='AssignmentList'><tr><th>Assignment</th><th>Date</th><th>Mark</th></tr>";
+      				$.each(data, function(key, datarow) {
+      					tableHtml += '<tr><td>' + datarow.Assignment + ' ' + datarow.Date.toDateString() + '</td><td>' + datarow.Mark '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '" onclick="showStudent(' + datarow.Code + ')"></td></tr>';
+      				});
+      				tableHtml += "</table></div>";
+      				// please check logs in browser console
+      				console.log(tableHtml);
+      				$('#AssignmentListDiv').html(tableHtml);
+            }
+          });
         }
         function showStudent(Code){
           selectedContact = Code;
@@ -117,7 +135,7 @@
                     if (coursedata.length > 1) SelectCell = '<td><input type="radio" name="SelectCourseRadio" onclick="selectCourse(' + InvoiceNumber + ')"></td>';
                     courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td>' + SelectCell + '</tr>';
                   });
-                  courseTable += '</table><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success">Tutor Contact</button></div></div></div>';
+                  courseTable += '</table><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success">Tutor Contact</button></div></div><div id="AssignmentListDiv"></div></div>';
                   $('#courseDetails').html(courseTable);
                 }
               });
@@ -138,7 +156,7 @@
 				success: function( data ) {
 				//alert(JSON.stringify(data));
         var items = data.length;
-        var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>A total of " + items + " students. <button id='ShowHide' class='btn-default' onclick='showList()'>Show/hide</button></h3>";
+        var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>A total of " + items + " students. <button id='Show student list' class='btn-info' onclick='showList()'>Show/hide</button></h3>";
         $('#WelcomeMessage').html(welcomeHtml);
         console.log(welcomeHtml);
 				tableHtml = "<div class='tabs-holder'><table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
