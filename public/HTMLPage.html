@@ -99,10 +99,11 @@
                   var CourseOrCourses = ' course';
                   var SelectHeader = '';
                   var SelectCell = '';
+                  var InvoiceNumber = 0;
                   if (coursedata.length > 1) {
                     CourseOrCourses = ' courses';
                     SelectHeader = '<th>Select</th>';
-                    SelectCell = '<td><input type="radio" onclick="selectCourse(' + courserow.Invoice_Number + ')"></td>';
+                    SelectCell = '<td><input type="radio" onclick="selectCourse(' + InvoiceNumber + ')"></td>';
                   } else {
                     selectCourse(coursedata[0].Invoice_Number);
                   }
@@ -110,6 +111,7 @@
                   courseTable += '<div class="tabs-holder"><table><tr><th>Started</th><th>Subject</th><th>Exam Date</th><th>Tutor</th>' + SelectHeader + '</tr>';
                   $.each(coursedata, function(key, courserow){
                     var StartDate =  courserow.Date;
+                    InvoiceNumber = courserow.Invoice_Number;
                     courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td>' + SelectCell + '</tr>';
                   });
                   courseTable += '</table></div>';
