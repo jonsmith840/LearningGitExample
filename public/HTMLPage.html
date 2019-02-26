@@ -38,7 +38,7 @@
     				success: function( data ) {
               tableHtml = "<div class='tabs-holder'><table id='AssignmentList'><tr><th>Assignment</th><th>Date</th><th>Mark</th></tr>";
       				$.each(data, function(key, datarow) {
-      					tableHtml += '<tr><td>' + datarow.Assignment + ' ' + datarow.Date.toDateString() + '</td><td>' + datarow.Mark + '</td></tr>';
+      					tableHtml += '<tr><td>' + datarow.Assignment + ' ' + datarow.Date.substring(0,10) + '</td><td>' + datarow.Mark + '</td></tr>';
       				});
       				tableHtml += "</table></div>";
       				// please check logs in browser console
