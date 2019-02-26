@@ -51,6 +51,31 @@
           alert('Please select a course.');
         }
         }
+        function listContact(){
+          if (selectedCourse){
+          var contactjson = { QueryString : "TutorContactAuthIDSP" , Params : {Course : [selectedCourse]}};
+          $.ajax({
+    				url: './',
+    				type: 'post',
+    				data: JSON.stringify(contactjson),
+    				dataType: 'json',
+    				contentType: 'application/json; charset=utf-8',
+    				success: function( data ) {
+              var contactHtml = '<div class="row-fluid">&nbsp</div><div class="row-fluid"><h3>Contact with tutor: ' + data[0].Name + '</h3></div><div class="row-fluid">&nbsp</div>';
+              contactHtml += "<div class='tabs-holder'><table id='ContacttList'><tr><th>Date</th><th>Type</th><th>Duration (Mins)</th></tr>";
+      				$.each(data, function(key, datarow) {
+      					contactHtml += '<tr><td>' + datarow.ContactDate.substring(0,10) + '</td><td>' + datarow.ContactType + '</td><td>' + datarow.Duration + '</td></tr>';
+      				});
+      				contactHtml += "</table></div>";
+      				// please check logs in browser console
+      				console.log(contactHtml);
+      				$('#AssignmentListDiv').html(contactHtml);
+            }
+          });
+        } else {
+          alert('Please select a course.');
+        }
+        }
         function showStudent(Code){
           selectedContact = Code;
           var studentjson = { QueryString : "ContactDetailsAuthIDSP" , Params : {Contact : [Code]}};
@@ -139,7 +164,7 @@
                     if (coursedata.length > 1) SelectCell = '<td><input type="radio" name="SelectCourseRadio" onclick="selectCourse(' + InvoiceNumber + ')"></td>';
                     courseTable += '<tr><td>' + StartDate.substring(0,10) + '</td><td>' + courserow.Subject_Name + ' ' + courserow.Course + '</td><td>' + courserow.Exam_Date.substring(0,7) + '</td><td>' + courserow.Name + '</td>' + SelectCell + '</tr>';
                   });
-                  courseTable += '</table><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success">Tutor Contact</button></div></div><div id="AssignmentListDiv"></div></div>';
+                  courseTable += '</table><div class="row-fluid"><div class="span3"><button class="btn-success" onclick="listAssignments()">Assignments</button></div><div class="span3"><button class="btn-success" onclick="listContact()">Tutor Contact</button></div></div><div id="AssignmentListDiv"></div></div>';
                   $('#courseDetails').html(courseTable);
                 }
               });
