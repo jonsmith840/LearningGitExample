@@ -47,6 +47,8 @@
       				$('#AssignmentListDiv').html(assignmentHtml);
             }
           });
+        } else {
+          alert('Please select a course.');
         }
         }
         function showStudent(Code){
@@ -158,7 +160,7 @@
 				success: function( data ) {
 				//alert(JSON.stringify(data));
         var items = data.length;
-        var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>A total of " + items + " students. <button id='Show student list' class='btn-info' onclick='showList()'>Show/hide</button></h3>";
+        var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>A total of " + items + " students. <button id='ShowHide' class='btn-info' onclick='showList()'>Show student list</button></h3>";
         $('#WelcomeMessage').html(welcomeHtml);
         console.log(welcomeHtml);
 				tableHtml = "<div class='tabs-holder'><table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
