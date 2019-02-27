@@ -17,8 +17,6 @@
         var selectedCourse = 0;
         var selectedContact = 0;
         function showList(){
-          selectedCourse = 0;
-          selectedContact = 0;
           $('#StuffGoesHere').toggle();
           $('#ShowHide').toggle();
         }
@@ -26,6 +24,8 @@
           selectedCourse = Course;
         }
         function restoreStudentList(){
+          selectedCourse = 0;
+          selectedContact = 0;
           $('#StuffGoesHere').html(tableHtml);
         }
         function listAssignments(){
