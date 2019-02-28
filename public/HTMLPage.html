@@ -89,7 +89,7 @@
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
               var address = data[0].Street;
-              if (data[0].Locality.length) address += '<br>' + data[0].Locality;
+              if (data[0].Locality) address += '<br>' + data[0].Locality;
               if (data[0].Town.length) address += '<br>' + data[0].Town;
               if (data[0].County.length) address += '<br>' + data[0].County;
               if (data[0].Country.length) address += '<br>' + data[0].Country;
