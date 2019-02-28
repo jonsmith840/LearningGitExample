@@ -90,10 +90,10 @@
     				success: function( data ) {
               var address = data[0].Street;
               if (data[0].Locality) address += '<br>' + data[0].Locality;
-              if (data[0].Town.length) address += '<br>' + data[0].Town;
-              if (data[0].County.length) address += '<br>' + data[0].County;
-              if (data[0].Country.length) address += '<br>' + data[0].Country;
-              if (data[0].Postcode.length) address += '<br>' + data[0].Postcode;
+              if (data[0].Town) address += '<br>' + data[0].Town;
+              if (data[0].County) address += '<br>' + data[0].County;
+              if (data[0].Country) address += '<br>' + data[0].Country;
+              if (data[0].Postcode) address += '<br>' + data[0].Postcode;
               var studentHtml = '<h2>Student details for ' + data[0].FirstName + ' ' + data[0].LastName + '</h2>';
               studentHtml += '<div class="top-info">';
 
