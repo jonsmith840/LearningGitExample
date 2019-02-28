@@ -38,20 +38,19 @@
     				dataType: 'json',
     				contentType: 'application/json; charset=utf-8',
     				success: function( data ) {
-              if (data){}
-              var assignmentHtml = '<div class="row-fluid">&nbsp</div><div class="row-fluid"><h3>' + data[0].Subject_Name + ' ' + data[0].Course + ' assignments</h3></div><div class="row-fluid">&nbsp</div>';
+              var assignmentHtml = ''
+              if (data){
+              assignmentHtml = '<div class="row-fluid">&nbsp</div><div class="row-fluid"><h3>' + data[0].Subject_Name + ' ' + data[0].Course + ' assignments</h3></div><div class="row-fluid">&nbsp</div>';
               assignmentHtml += "<div class='tabs-holder'><table id='AssignmentList'><tr><th>Assignment</th><th>Date</th><th>Mark</th></tr>";
       				$.each(data, function(key, datarow) {
       					assignmentHtml += '<tr><td>' + datarow.Assignment + '</td><td>' + datarow.Date.substring(0,10) + '</td><td>' + (datarow.Mark * 100).toFixed(2) + '%</td></tr>';
       				});
       				assignmentHtml += "</table></div>";
-      				// please check logs in browser console
-      				//console.log(assignmentHtml);
-      				$('#AssignmentListDiv').html(assignmentHtml);
+              } else {
+                assignmentHtml = '<div class="tabs-holder"><div class="row-fluid"><h3>No assignments yet</h3></div></div>';
+              }
+              $('#AssignmentListDiv').html(assignmentHtml);
             }
-          } else {
-            assignmentHtml = '<div class="tabs-holder"><div class="row-fluid"><h3>No assignments yet</h3></div></div>';
-          }
           });
         } else {
           alert('Please select a course.');
