@@ -192,6 +192,7 @@
 				success: function( data ) {
         var items = data.length;
         var welcomeHtml = '<h2>Welcome ' + data[0].AuthName + "</h2><h3>" + data[0].Name + " has a total of " + items + " students. <button id='ShowHide' class='btn-info' onclick='showList()'>Show student list</button></h3>";
+        welcomeHtml += '<div class="row-fluid"><div class="span3"><input type="text" name="NameSearchField"></div><div class="span3"><button class="btn-success" onclick="SearchContact()">Search for part of name</button></div></div>';
         $('#WelcomeMessage').html(welcomeHtml);
         //console.log(welcomeHtml);
 				tableHtml = "<div class='tabs-holder'><table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
