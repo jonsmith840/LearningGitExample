@@ -235,7 +235,10 @@
 				// please check logs in browser console
 				//console.log(tableHtml);
 				$('#StuffGoesHere').html(tableHtml);
-				}
+        },
+        error: function(){
+          window.location.href = "/login.html";
+        }
 			});
         	});
         </script>
