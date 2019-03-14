@@ -56,15 +56,15 @@ app.post('/', function (req, res) {
 
             // send records as a response
         	//res.writeHead(200, { 'Content-Type': 'text/html' });
-        	res.writeHead(200, { 'Content-Type': 'application/json' });
+        	   res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(result.recordset));
-
+            sql.close();
         });
         //var request2 = new sql.Request();
         //request2.input('AuthID', sql.VarChar, identity);
         //request2.input('user_id', sql.VarChar, user_id);
         //request2.execute("UpdateAuthIDSP");
-        sql.close();
+
     });
     //res.end(identity + " nothing is what's coming through");
     //res.end(JSON.stringify(req.headers));
