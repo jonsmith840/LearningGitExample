@@ -60,10 +60,10 @@ app.post('/', function (req, res) {
             res.end(JSON.stringify(result.recordset));
 
         });
-        var request2 = new sql.Request();
-        request2.input('AuthID', sql.VarChar, identity);
-        request2.input('user_id', sql.VarChar, user_id);
-        request2.execute("UpdateAuthIDSP");
+        //var request2 = new sql.Request();
+        //request2.input('AuthID', sql.VarChar, identity);
+        //request2.input('user_id', sql.VarChar, user_id);
+        //request2.execute("UpdateAuthIDSP");
         sql.close();
     });
     //res.end(identity + " nothing is what's coming through");
