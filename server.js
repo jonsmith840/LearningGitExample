@@ -39,9 +39,17 @@ app.post('/', function (req, res) {
         }
         var request2 = new sql.Request();
         request2.input('AuthID', sql.VarChar, identity);
-        request2.input('user_id', sql.VarChar, user_id);
-        request2.execute("UpdateAuthIDSP", (err, result) => {
+        //request2.input('user_id', sql.VarChar, user_id);
+        request2.execute("ProviderAuthIDSP", (err, result) => {
           console.log(result.rowsAffected)
+          if (!result.recordset[0].AuthProvider){
+            var request3 = new sql.Request();
+            request3.input('AuthID', sql.VarChar, identity);
+            request3.input('user_id', sql.VarChar, user_id);
+            request3.execute("UpdateAuthIDSP", (err, updateresult) => {
+              console.log(updateresult.rowsAffected)
+            });
+          }
         });
 		var request = new sql.Request();
 		request.input('AuthID', sql.VarChar, identity);
