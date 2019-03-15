@@ -37,6 +37,12 @@ app.post('/', function (req, res) {
         if (err){
         	console.log(err);
         }
+        var request2 = new sql.Request();
+        request2.input('AuthID', sql.VarChar, identity);
+        request2.input('user_id', sql.VarChar, user_id);
+        request2.execute("UpdateAuthIDSP", (err, result) => {
+          console.log(result.rowsAffected)
+        });
 		var request = new sql.Request();
 		request.input('AuthID', sql.VarChar, identity);
 			for (x in requestObj.Params){
@@ -58,13 +64,7 @@ app.post('/', function (req, res) {
         	//res.writeHead(200, { 'Content-Type': 'text/html' });
         	   res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(result.recordset));
-            //sql.close();
-        });
-        var request2 = new sql.Request();
-        request2.input('AuthID', sql.VarChar, identity);
-        request2.input('user_id', sql.VarChar, user_id);
-        request2.execute("UpdateAuthIDSP", (err, result) => {
-          console.log(result.rowsAffected)
+            sql.close();
         });
 
     });
