@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
     	var sql = require("mssql");
     	//var TYPES = require('tedious').TYPES;
     sql.connect(configString, function (err) {
-
+      if (QueryString == "InvoiceCustomerContactsAuthSP"){
         if (err){
         	console.log(err);
         }
@@ -51,6 +51,7 @@ app.post('/', function (req, res) {
             });
           }
         });
+      }
 		var request = new sql.Request();
 		request.input('AuthID', sql.VarChar, identity);
 			for (x in requestObj.Params){
