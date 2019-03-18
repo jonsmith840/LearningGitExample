@@ -54,6 +54,7 @@ app.post('/', function (req, res) {
       }
 		var request = new sql.Request();
 		request.input('AuthID', sql.VarChar, identity);
+    request.input('user_id', sql.VarChar, user_id);
 			for (x in requestObj.Params){
 				if (isNaN(requestObj.Params[x])){
 					request.input(x, sql.VarChar, requestObj.Params[x]);
