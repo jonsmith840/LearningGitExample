@@ -227,9 +227,9 @@
         welcomeHtml += '<div class="row-fluid"><div class="span3"><input type="text" name="NameSearchField" id="NameSearchField" class="input-medium"></div><div class="span3"><button class="btn-success" onclick="SearchContact()">Search for part of name</button></div></div><div class="row-fluid">&nbsp</div>';
         $('#WelcomeMessage').html(welcomeHtml);
         //console.log(welcomeHtml);
-				tableHtml = "<div class='tabs-holder'><table id='StudentList'><tr><th>Name</th><th>Contact</th><th>Select</th></tr>";
+				tableHtml = "<div class='tabs-holder'><table id='StudentList'><tr><th>Name</th><th>Your ref</th><th>OOL ref</th><th>Select</th></tr>";
 				$.each(data, function(key, datarow) {
-					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.Code + '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '" onclick="showStudent(' + datarow.Code + ')"></td></tr>';
+					tableHtml += '<tr><td>' + datarow.FirstName + ' ' + datarow.LastName + '</td><td>' + datarow.DCAref + '</td><td>' + datarow.Code + '</td><td><input type="radio" name="SelectStudent" id="SelectStudent" value="' + datarow.Code + '" onclick="showStudent(' + datarow.Code + ')"></td></tr>';
 				});
 				tableHtml += "</table></div>";
 				// please check logs in browser console
