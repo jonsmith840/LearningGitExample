@@ -165,6 +165,12 @@
                 studentHtml += '<td>' + data[0].Work_Phone + '</td>';
                 studentHtml += '</tr>';
               }
+              if (data[0].DCAref){
+                studentHtml += '<tr>';
+                studentHtml += '<td>Your ref:</td>';
+                studentHtml += '<td>' + data[0].DCAref + '</td>';
+                studentHtml += '</tr>';
+              }
               studentHtml += '</tbody>';
               studentHtml += '</table>';
 
